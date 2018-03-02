@@ -73,7 +73,7 @@ class Player(object):
         self.cards = []
 
     def give_card(self, card):
-        self.cards.append(card)
+        self.cards = [card] + self.cards
 
 
 class Game(object):
