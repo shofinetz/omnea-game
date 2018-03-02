@@ -46,9 +46,15 @@ class PlayerTestCase(TestCase):
 
     def test_player_has_cards(self):
         player = game.Player()
-        player.give_card(game.jack)
         player.give_card(game.ace)
+        player.give_card(game.jack)
         self.assertEqual(player.cards, [game.jack, game.ace])
+
+
+class CardTestCase(TestCase):
+
+    def test_compare(self):
+        self.assertLess(game.Card(game.spades, game.two), game.Card(game.hearts, game.two))
 
 
 class GameTestClass(TestCase):

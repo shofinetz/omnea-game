@@ -60,11 +60,20 @@ NUMBER_ORDER = [
 ]
 
 
+@total_ordering
 class Card(object):
 
     def __init__(self, suit, number):
         self.suit = suit
         self.number = number
+
+    def __lt__(self, other):
+        if self.number == other.number:
+            return self.suit < other.suit
+        return self.number < other.number
+
+    def __eq__(self, other):
+        return self.suit == other.suit and self.number == other.number
 
 
 class Player(object):
@@ -155,3 +164,6 @@ class Game(object):
         player.give_card(self.pack.pop())
         player = remaining_players.pop()
         return self.deal(player, remaining_players)
+
+    def round(self):
+        pass
