@@ -63,4 +63,11 @@ class GameTestClass(TestCase):
         p1 = game.Player()
         p2 = game.Player()
         g = game.Game([p1, p2])
-        self.assertTrue(len(g.PACK), len(game.NUMBER_ORDER)*len(game.SUIT_ORDER))
+        self.assertTrue(len(g.pack), len(game.NUMBER_ORDER) * len(game.SUIT_ORDER))
+
+    def test_deal(self):
+        p1 = game.Player()
+        p2 = game.Player()
+        g = game.Game([p1, p2])
+        g.deal()
+        self.assertEqual(len(p1.cards), len(p2.cards))
