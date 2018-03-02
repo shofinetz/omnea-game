@@ -71,3 +71,9 @@ class GameTestClass(TestCase):
         g = game.Game([p1, p2])
         g.deal()
         self.assertEqual(len(p1.cards), len(p2.cards))
+
+    def test_is_shuffled(self):
+        p1 = game.Player()
+        p2 = game.Player()
+        g = game.Game([p1, p2])
+        self.assertNotEqual(g.PACK, g.pack)

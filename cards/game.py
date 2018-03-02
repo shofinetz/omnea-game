@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 from __future__ import unicode_literals, print_function
 from functools import total_ordering
+from random import shuffle
 
 
 @total_ordering
@@ -77,9 +78,7 @@ class Player(object):
 
 class Game(object):
 
-    def __init__(self, players):
-        self.players = players
-        self.pack = [
+    PACK = [
             Card(spades, two),
             Card(spades, three),
             Card(spades, four),
@@ -137,6 +136,11 @@ class Game(object):
             Card(hearts, ace),
         ]
 
+    def __init__(self, players):
+        self.players = players
+        self.pack = self.PACK[:]
+        shuffle(self.pack)
+
     def deal(self, player=None, remaining_players=None):
         if not self.pack:
             return
@@ -151,10 +155,3 @@ class Game(object):
         player.give_card(self.pack.pop())
         player = remaining_players.pop()
         return self.deal(player, remaining_players)
-
-        #
-        # if not remaining_players:
-        #     self.deal()
-        #
-        # player = remaining_players.pop()
-        # return self.deal(player, remaining_players)
