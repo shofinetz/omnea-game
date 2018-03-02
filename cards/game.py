@@ -64,3 +64,9 @@ class Card(object):
     def __init__(self, suit, number):
         self.suit = suit
         self.number = number
+
+
+class Player(object):
+
+    def __init__(self, cards):
+        self.cards = cards

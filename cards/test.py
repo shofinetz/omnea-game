@@ -40,3 +40,10 @@ class SuitTestCase(TestCase):
         self.assertLess(game.spades, game.clubs)
         self.assertLess(game.clubs, game.diamonds)
         self.assertLess(game.diamonds, game.hearts)
+
+
+class PlayerTestCase(TestCase):
+
+    def test_player_has_cards(self):
+        player = game.Player([game.jack, game.ace])
+        self.assertEqual(player.cards, [game.jack, game.ace])
