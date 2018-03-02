@@ -9,7 +9,8 @@ from . import game
 class GameTestCase(TestCase):
 
     def test_has_suit(self):
-        card = game.Card()
+        card = game.Card(game.hearts)
+        self.assertIs(card.suit, game.hearts)
 
 
 class SuitTestCase(TestCase):
