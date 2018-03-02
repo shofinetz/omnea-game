@@ -58,3 +58,9 @@ class GameTestClass(TestCase):
         p2 = game.Player()
         g = game.Game([p1, p2])
         self.assertTrue(g.players, [p1, p2])
+
+    def test_game_has_deck(self):
+        p1 = game.Player()
+        p2 = game.Player()
+        g = game.Game([p1, p2])
+        self.assertTrue(len(g.PACK), len(game.NUMBER_ORDER)*len(game.SUIT_ORDER))

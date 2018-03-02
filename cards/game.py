@@ -65,7 +65,6 @@ class Card(object):
         self.suit = suit
         self.number = number
 
-
 class Player(object):
 
     def __init__(self):
@@ -76,6 +75,64 @@ class Player(object):
 
 
 class Game(object):
+    PACK = [
+        Card(spades, two),
+        Card(spades, three),
+        Card(spades, four),
+        Card(spades, five),
+        Card(spades, six),
+        Card(spades, seven),
+        Card(spades, eight),
+        Card(spades, nine),
+        Card(spades, ten),
+        Card(spades, jack),
+        Card(spades, queen),
+        Card(spades, king),
+        Card(spades, ace),
+
+        Card(clubs, two),
+        Card(clubs, three),
+        Card(clubs, four),
+        Card(clubs, five),
+        Card(clubs, six),
+        Card(clubs, seven),
+        Card(clubs, eight),
+        Card(clubs, nine),
+        Card(clubs, ten),
+        Card(clubs, jack),
+        Card(clubs, queen),
+        Card(clubs, king),
+        Card(clubs, ace),
+
+        Card(diamonds, two),
+        Card(diamonds, three),
+        Card(diamonds, four),
+        Card(diamonds, five),
+        Card(diamonds, six),
+        Card(diamonds, seven),
+        Card(diamonds, eight),
+        Card(diamonds, nine),
+        Card(diamonds, ten),
+        Card(diamonds, jack),
+        Card(diamonds, queen),
+        Card(diamonds, king),
+        Card(diamonds, ace),
+
+        Card(hearts, two),
+        Card(hearts, three),
+        Card(hearts, four),
+        Card(hearts, five),
+        Card(hearts, six),
+        Card(hearts, seven),
+        Card(hearts, eight),
+        Card(hearts, nine),
+        Card(hearts, ten),
+        Card(hearts, jack),
+        Card(hearts, queen),
+        Card(hearts, king),
+        Card(hearts, ace),
+    ]
 
     def __init__(self, players):
         self.players = players
+
