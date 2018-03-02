@@ -68,5 +68,8 @@ class Card(object):
 
 class Player(object):
 
-    def __init__(self, cards):
-        self.cards = cards
+    def __init__(self):
+        self.cards = []
+
+    def give_card(self, card):
+        self.cards.append(card)

@@ -45,5 +45,11 @@ class SuitTestCase(TestCase):
 class PlayerTestCase(TestCase):
 
     def test_player_has_cards(self):
-        player = game.Player([game.jack, game.ace])
+        player = game.Player()
+        player.give_card(game.jack)
+        player.give_card(game.ace)
         self.assertEqual(player.cards, [game.jack, game.ace])
+
+
+class GameTestClass(TestCase):
+    pass
