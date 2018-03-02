@@ -65,6 +65,7 @@ class Card(object):
         self.suit = suit
         self.number = number
 
+
 class Player(object):
 
     def __init__(self):
@@ -136,13 +137,24 @@ class Game(object):
             Card(hearts, ace),
         ]
 
-    def deal(self, player=None):
+    def deal(self, player=None, remaining_players=None):
         if not self.pack:
             return
 
+        if not remaining_players:
+            remaining_players = self.players[:]
+
         if player is None:
-            players_copy = self.players[:]
-            player = players_copy.pop()
-            return self.deal(player)
+            # remaining_players = self.players[:]
+            player = remaining_players.pop()
 
+        player.give_card(self.pack.pop())
+        player = remaining_players.pop()
+        return self.deal(player, remaining_players)
 
+        #
+        # if not remaining_players:
+        #     self.deal()
+        #
+        # player = remaining_players.pop()
+        # return self.deal(player, remaining_players)
