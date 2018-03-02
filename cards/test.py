@@ -52,4 +52,9 @@ class PlayerTestCase(TestCase):
 
 
 class GameTestClass(TestCase):
-    pass
+
+    def test_game_has_players(self):
+        p1 = game.Player()
+        p2 = game.Player()
+        g = game.Game([p1, p2])
+        self.assertTrue(g.players, [p1, p2])
