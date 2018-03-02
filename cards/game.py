@@ -136,8 +136,13 @@ class Game(object):
             Card(hearts, ace),
         ]
 
-    def deal(self):
+    def deal(self, player=None):
         if not self.pack:
             return
+
+        if player is None:
+            players_copy = self.players[:]
+            player = players_copy.pop()
+            return self.deal(player)
 
 
